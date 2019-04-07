@@ -229,6 +229,135 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/Zybo-Z7-20开发事项/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MaoChouh">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/07/Zybo-Z7-20开发事项/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-07T15:52:24+08:00">
+                2019-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Zybo-Z7-20-FPGA开发环境"><a href="#Zybo-Z7-20-FPGA开发环境" class="headerlink" title="Zybo-Z7 20 FPGA开发环境"></a>Zybo-Z7 20 FPGA开发环境</h1><p>此开发流程在以下环境下进行：<br>主机：Windows 10 64位；虚拟机：Ubuntu 16.04 64位<br>使用到的Xlinx提供的工具：<br>HLS、Vivado、SDK、Petalinux,版本均为2017.4（目前百度云上只上传了HLS、Vivado、SDK及其License，Petalinux因为4G上传限制无法成功上传）</p>
+<h2 id="导出HLS生成的RTL设计（IP核）"><a href="#导出HLS生成的RTL设计（IP核）" class="headerlink" title="导出HLS生成的RTL设计（IP核）"></a>导出HLS生成的RTL设计（IP核）</h2><p>Vivado建立工程需要导入board（已上传至百度云）信息到Vivado安装目录下</p>
+<p><code>C:\Xilinx\Vivado\2017.4\data\boards</code></p>
+<h2 id="安装Petalinux所需要的依赖环境"><a href="#安装Petalinux所需要的依赖环境" class="headerlink" title="安装Petalinux所需要的依赖环境"></a>安装Petalinux所需要的依赖环境</h2><p><code>sudo apt-get install -y python tofrodos iproute2 gawk xvfb gcc git net-tools libncurses5-dev tftpd zlib1g-dev libssl-dev flex bison libselinux1 gnupg wget diffstat chrpath socat xterm autoconf libtool tar unzip texinfo zlib1g-dev gcc-multilib build-essential libsdl1.2-dev libglib2.0-dev  zlib1g-dev:i386</code></p>
+<h2 id="修改-bin-sh"><a href="#修改-bin-sh" class="headerlink" title="修改/bin/sh"></a>修改/bin/sh</h2><p><code>dpkg-reconfigure dash</code> 出现的选项中选择“否”</p>
+<h2 id="安装Petalinux"><a href="#安装Petalinux" class="headerlink" title="安装Petalinux"></a>安装Petalinux</h2><p>在普通用户下输入 <code>./petalinux-v2017.4-final-installer.run ./petalinux</code></p>
+<h2 id="创建Petalinux工程"><a href="#创建Petalinux工程" class="headerlink" title="创建Petalinux工程"></a>创建Petalinux工程</h2><p><code>petalinux-create --type project --templete zynq --name &lt;project_name&gt;</code></p>
+<h2 id="Petalinux导入外部hdf文件"><a href="#Petalinux导入外部hdf文件" class="headerlink" title="Petalinux导入外部hdf文件"></a>Petalinux导入外部hdf文件</h2><p><code>petalinux-config --get-hw-description=/home/&lt;hdf_folder&gt;</code></p>
+<h2 id="Petalinux打包生成BOOT-BIN"><a href="#Petalinux打包生成BOOT-BIN" class="headerlink" title="Petalinux打包生成BOOT.BIN"></a>Petalinux打包生成BOOT.BIN</h2><p><code>petalinux-package --boot --format BIN --fsbl zynq_fsbl.elf --fpga system_wrapper.bit --u-boot</code></p>
+<h2 id="Linux-WLAN网口设置"><a href="#Linux-WLAN网口设置" class="headerlink" title="Linux WLAN网口设置"></a>Linux WLAN网口设置</h2><p><code>ifconfig eth0 192.168.1.101</code></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -390,7 +519,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
